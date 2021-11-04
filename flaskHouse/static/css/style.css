@@ -1,0 +1,125 @@
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-text-color: #043959;
+  --primary-color: #3071cd;
+  --secondary-color: #2e69cb;
+}
+
+:focus {
+  outline: 0.125rem solid var(--primary-color);
+  outline-offset: 0.125rem;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--primary-text-color);
+  line-height: 1.5;
+  font-size: 1em;
+}
+
+input, button {
+  font: inherit;
+  border-radius: 0;
+  border: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: linear-gradient(135deg, #52E5E7 5%, #130CB7 100%);
+}
+
+.panel {
+  background-color: #FFF;
+  min-width: 32rem;
+  display: flex;
+  flex-direction: column;
+  padding: 4rem 3rem;
+  border-radius: 0.5rem;
+  box-shadow: 0.75rem 0.75rem 1.75rem 0 rgba(0, 0, 0, 0.25);
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.panel-header-logo {
+  height: 5rem;
+}
+
+.panel-header-title {
+  margin-top: 1.5rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.panel-header-info {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--primary-color);
+  border-bottom: 0.0625rem solid;
+}
+.link:hover {
+  color: var(--secondary-color);
+}
+
+.form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+}
+.input + .input {
+  margin-top: 1.5rem;
+}
+
+.input-label {
+  font-weight: 600;
+}
+
+.input-field {
+  margin-top: 0.25rem;
+  border: 0.0625rem solid #999;
+}
+
+.input-submit {
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: #FFF;
+}
+.input-submit:hover {
+  background-color: var(--secondary-color);
+}
+
+.input-field, .input-submit {
+  padding: 0.5rem 0.75rem;
+  min-height: 3rem;
+}
+
+.panel-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.panel-footer-info {
+  text-align: center;
+}

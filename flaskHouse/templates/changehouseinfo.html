@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="/static/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/assets/libs/css/style.css">
+    <link rel="stylesheet" href="/static/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <title>个人用户房源后台管理系统</title>
+        <script src="/static/jquery-1.8.3.min.js"></script>
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="">个人用户房源后台管理系统</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        <li class="nav-item">
+                            <div id="custom-search" class="top-search-bar">
+                                <a href="/quert_by_key_words" class="form-control">关键字查询</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown notification">
+
+                        </li>
+                        <li class="nav-item dropdown connection">
+
+                        </li>
+                        <li class="nav-item dropdown nav-user">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/static/assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                                <a class="dropdown-item" href="/log_out"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        <div class="nav-left-sidebar sidebar-dark">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-divider">
+                                菜单
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="/user_index"><i class="fa fa-fw fa-user-circle"></i>发布房源</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/viewhouseinfo"><i class="fa fa-fw fa-rocket"></i>查看已发布房源信息</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+                    <!-- ============================================================== -->
+                    <!-- pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header">
+                                <h2 class="pageheader-title">修改房源信息 </h2>
+                                <p class="pageheader-text"></p>
+                                <div class="page-breadcrumb">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">房源管理</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">修改房源信息</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- end pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="mb-0">信息发布</h4>
+                                        </div>
+
+                                        <div class="card-body">
+                                            <form class="needs-validation">
+                                                 <div class="row">
+                                                    <div class="col-md-5 mb-3">
+                                                        <label for="country">小区所在城市</label>
+                                                        <select class="custom-select d-block w-100" id="country" required="">
+                                                            <option value="{{ dic['country'] }}">{{ dic['country'] }}</option>
+                                                            <option>武汉</option>
+                                                            <option>北京</option>
+                                                            <option>天津</option>
+                                                            <option>上海</option>
+                                                            <option>重庆</option>
+                                                        </select>
+                                                        <div class="invalid-feedback">
+                                                            Please select a valid country.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="小区">小区</label>
+                                                        <input type="text" class="form-control" id="communityName" placeholder="请输入小区名" value="{{ dic['communityName'] }}" required="">
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="房屋基本信息">房屋基本信息</label>
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" id="houseInfo" placeholder="房源名-几室几厅-面积" required="" value="{{ dic['houseInfo'] }}">
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="期望售价">期望售价 <span class="text-muted">（万元）</span></label>
+                                                    <input type="email" class="form-control" id="price" placeholder="请输入你期望卖出的价格" value="{{ dic['price'] }}">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="称呼">称呼</label>
+                                                    <input type="text" class="form-control" id="name" placeholder="我们应该如何称呼您" required="" value="{{ dic['name'] }}">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="手机号码">手机号码<span class="text-muted"></span></label>
+                                                    <input type="text" class="form-control" id="telenumber" placeholder="请输入您的手机号码" value="{{ dic['telenumber'] }}">
+                                                </div>
+                                                <button class="btn btn-primary btn-lg btn-block" type="submit" id="btn1">确认修改房源</button>
+                                                {% for message in get_flashed_messages() %}
+                                                    {{ message }}
+                                                {% endfor %}
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <script>
+                                    $("#btn1").click(function (){
+                                        $.ajax({
+                                            url:"/changehouseinfo/{{ dic['id'] }}",
+                                            type:"post",
+                                            data:{
+                                                "country":$("#country").val(),
+                                                "communityName":$("#communityName").val(),
+                                                "houseInfo":$("#houseInfo").val(),
+                                                "price":$("#price").val(),
+                                                "name":$("#name").val(),
+                                                "telenumber":$("#telenumber").val(),
+                                            },
+                                            dataType:"json",
+                                            success:function (results) {
+                                                if(results.status=="yes"){
+                                                    alert("房源信息修改成功！将为您自动跳转到房源信息查看界面！");
+                                                    location.href="/viewhouseinfo"
+                                                } else{
+                                                    $("#error").html(results.status)
+                                                }
+                                            }
+                                        })
+                                    })
+                                </script>
+
+
+                                <div class="col-md-4 mb-4">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h4 class="d-flex justify-content-between align-items-center mb-0">
+                                                        <span class="text-muted">武汉市成交均价 16652 元/㎡</span>
+                                                 </h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="list-group mb-3">
+                                                <li class="list-group-item d-flex justify-content-between">
+                                                    <div>
+                                                        <h6 class="my-0">宝丰二路12号-3室1厅-78.19平米</h6>
+                                                        <small class="text-muted">挂牌时间</small>
+                                                    </div>
+                                                    <span class="text-muted">109万</span>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between">
+                                                    <div>
+                                                        <h6 class="my-0">天祥尚府-2室1厅-89.95平米</h6>
+                                                        <small class="text-muted">挂牌时间</small>
+                                                    </div>
+                                                    <span class="text-muted">175万</span>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between">
+                                                    <div>
+                                                        <h6 class="my-0">宜家龙臣-2室1厅-91.94平米</h6>
+                                                        <small class="text-muted">挂牌时间</small>
+                                                    </div>
+                                                    <span class="text-muted">98.5万</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- footer -->
+                <!-- ============================================================== -->
+                <div class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                <div class="text-md-right footer-links d-none d-sm-block">
+                                    <a href="javascript: void(0);">About</a>
+                                    <a href="javascript: void(0);">Support</a>
+                                    <a href="javascript: void(0);">Contact Us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- end footer -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- end wrapper  -->
+            <!-- ============================================================== -->
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper  -->
+    <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
+    <!-- jquery 3.3.1  -->
+    <script src="/static/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <!-- bootstap bundle js-->
+    <script src="/static/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <!-- slimscroll js-->
+    <script src="/static/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <!-- main js-->
+    <script src="/static/assets/libs/js/main-js.js"></script>
+</body>
+
+ 
+</html>

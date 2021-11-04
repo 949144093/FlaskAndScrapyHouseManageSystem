@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>搜索功能</title>
+    <script src="/static/jquery-1.8.3.min.js"></script>
+  <style>
+    .content {
+      width: 600px;
+      height: 600px;
+      /* background: yellow; */
+      margin: 50px auto;
+    }
+    #table-1 {
+      {#width: 500px;#}
+      {#line-height: 35px;#}
+
+    }
+
+    #lin {
+      margin: 20px 0;
+      height: 30px;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+  </style>
+  
+</head>
+
+<body>
+
+
+
+  <div class="content">
+    <input type="text" id="lin" placeholder="请输入需要搜索的内容">
+
+    <table id="table-1" cellspacing='0' border="1" style="text-align: center;">
+      <tr>
+        <th>地区</th>
+        <th>小区</th>
+        <th>房源信息</th>
+        <th>价格</th>
+        <th>出租人姓名</th>
+        <th>出租人电话</th>
+      </tr>
+        <script>
+            $(function () {
+                $.ajax({
+                    url:"/houseinfoquery",
+                    dataType:"json",
+                    success:function (result) {
+                        var viewData="";
+                        for(var i = 0; i < result.houselist.length; i++)
+                        {
+                            viewData+='<tr>';
+                            viewData+='<td>'+result.houselist[i].country+'</td>';
+                            viewData+='<td>'+result.houselist[i].communityName+'</td>';
+                            viewData+='<td>'+result.houselist[i].houseInfo+'</td>';
+                            viewData+='<td>'+result.houselist[i].price+'</td>';
+                            viewData+='<td>'+result.houselist[i].name+'</td>';
+                            viewData+='<td>'+result.houselist[i].telenumber+'</td>';
+                            viewData+='</tr>';
+                        }
+                        $("#table-1").append(viewData);
+                    }
+                })
+            })
+        </script>
+    </table>
+  </div>
+
+  <script type="text/javascript" src="static/jquery.min.js"></script>
+  <script type="text/javascript" src="static/lin_search.js"></script>
+  <script type="text/javascript">
+    var table = document.getElementById("table-1");
+    var input = document.getElementById("lin")
+
+
+    input.onkeyup = function () {
+      new Search(table, input)
+    }
+  </script>
+
+</body>
+</html>

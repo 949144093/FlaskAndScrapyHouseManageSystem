@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>二手房系统后台登录</title>
+
+<link rel="stylesheet" href="static/css/reset.min.css">
+
+<link rel="stylesheet" href="static/css/style.css">
+
+</head>
+<body>
+
+<div class="container">
+	<div class="panel">
+		<div class="panel-header">
+			<div class="panel-header-logo">
+				<img src="static/picture/二手房.png" width="110" height="110" alt="二手房系统">
+			</div>
+			<h1 class="panel-header-title">二手房系统后台登录</h1>
+				<p class="panel-header-info">没有帐户？ <a href="/sign-up" class="link">点击注册</a></p>
+		</div>
+		<form class="form" action="/login" method="post">
+			<div class="input">
+				<label class="input-label">用户名</label>
+				<input type="text" class="input-field" name="username">
+			</div>
+			<div class="input">
+				<label class="input-label">密码</label>
+				<input type="password" class="input-field" name="pwd">
+			</div>
+			<div class="input">
+				<button class="input-submit" onclick="submit" value="登录">登录</button>
+			</div>
+            {% for message in get_flashed_messages() %}
+                {{ message }}
+            {% endfor %}
+		</form>
+	</div>
+</div>
+
+  
+</body>
+</html>
