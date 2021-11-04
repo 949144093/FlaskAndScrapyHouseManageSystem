@@ -1,0 +1,6 @@
+# FlaskAndScrapyHouseManageSystem
+使用不用的登录账号区分管理员用户和普通用户
+数据库预设3个默认账户 user uesr1 admin 密码均为666 可以自行注册
+user账户对应房源信息发布等功能
+admin账户对应后台管理，数据展示等功能
+scrapyHouse文件是针对贝壳网站信息爬取的一个爬虫项目
